@@ -1,0 +1,68 @@
+# SpringDoc
+springdoc:
+    swagger-ui:
+        path:/swagger-ui.html
+spring: 
+    jpa:
+        database: h2
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+
+    datasource:
+        platform: h2
+        url: jdbc:h2:~/test;AUTO_SERVER=TRUE
+        username: sa
+        password: 666777
+        driverClassName: org.h2.Driver
+
+    h2:
+        console:
+            settings:
+                web-allow-others: true  
+            path: /h2-consloe
+            enabled: false
+
+#context path
+server:
+    servlet:
+        context-path: /
+    port: 8080
+
+# Keycloak SSO Setting -------------------------------------------------------------------------------
+keycloak:
+    enabled: true
+    realm: 
+    bearer-only: true
+    auth-server-url: 
+    ssl-required: external
+    resource: 
+    verify-token-audience: false
+    use-resource-role-mappings: false
+    confidential-port: 0
+
+
+security:
+    ignored: /**
+
+http:
+    converters:
+        preferred-json-mapper: gson
+
+line:
+    bot:
+        channel-token: a7ABMl8wIbHg0AJYmSLu7u0gmgGiQWkh8XYSrzscWXN2WarLVN+Zo+VpSPvPImVrEhA0CptMW2UWWbU7DIIT7d6RBQoAVfOrootrYit+AypVK30B1lO3f+OGzW2QYZrpN2lLBhngvzJ4/n8b1RHgNAdB04t89/1O/w1cDnyilFU=
+        channel-secret: 4fb53fad5e2495b2289274a2b6cbcfdb
+        channel-token2: RkbkVtic0rQRtJUAe3McIUQrNWnWFqAhi7HOIlPdW7XnXk55h5lUu3SG2XJ9/InLWru6Nlg8BlBBgRznCpFmR8ngR9T8nSksqsrMI4oKNO4UbUv/NSSXC2URPUsm0pxJTmJuHnu74JHHBfqc65yMkAdB04t89/1O/w1cDnyilFU=
+        channel-secret2: 7833d01ddd87035305749f04ba779093
+        channelTokenSupplyMode: fixed        
+        handler.enabled: true
+        handler.path: /callback
+        connectTimeout: 60000
+        readTimeout: 60000
+        writeTimeout: 60000
+    login:
+        channelId: 1657768340
+        channelSecret: 7833d01ddd87035305749f04ba779093
+        callbackUrl: https://773b-2403-c300-4202-a389-1e-bd27-e950-7c9a.jp.ngrok.io/linelogin/auth
+        
